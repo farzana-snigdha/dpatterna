@@ -10,6 +10,7 @@ export class Light {
 export class RedLight {
   increase: number = 0;
   on(): string {
+    this.increase = 0;
     return "red0";
   }
 
