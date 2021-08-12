@@ -36,7 +36,7 @@ export interface Command {
 }
 
 export class TurnOnLightCommand implements Command{
-    light: Light;
+    light!: Light;
 
     setCommand(): string{
         return this.light.on()

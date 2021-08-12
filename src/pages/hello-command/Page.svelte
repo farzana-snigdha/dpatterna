@@ -13,9 +13,10 @@
   let src = `./images/light-receiver/${commands[commandType]}.png`;
 
   function executeCommand(command) {
+    console.log('src ',command)
     commandType = setLightCommands(command);
     src = `./images/light-receiver/${commands[command]}.png`;
-     console.log(src)
+     console.log(commandType)
   }
 
 </script>
@@ -26,10 +27,10 @@
   <button class="on" on:click={() => executeCommand('on')}>On</button>
   <button class="off" on:click={() => executeCommand('off')}>Off</button>
 
-  <button class="increase-lum" on:click={() => executeCommand()}>+</button>
-  <button class="decrease-lum" on:click={() => executeCommand()}>-</button>
+  <button class="increase-lum" on:click={() => executeCommand('increase')}>+</button>
+  <button class="decrease-lum" on:click={() => executeCommand('decrease')}>-</button>
 
-  <button class="red-light" on:click={() => executeCommand()}>Red</button>
+  <button class="red-light" on:click={() => executeCommand('red0')}>Red</button>
 </div>
 
 <div class="portrait"><img {src} alt={src} /></div>
