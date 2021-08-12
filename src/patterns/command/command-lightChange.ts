@@ -1,8 +1,8 @@
 export class Light {
-  on(): string {
+  public on(): string {
     return "on";
   }
-  off(): string {
+ public off(): string {
     return "off";
   }
 }
@@ -36,7 +36,7 @@ export interface Command {
 }
 
 export class TurnOnLightCommand implements Command{
-    light!: Light;
+    light: Light;
 
     setCommand(): string{
         return this.light.on()
@@ -76,11 +76,14 @@ export class DecreaseRedLightCommand implements Command{
 }
 
 export class RemoteControl{
-    command:Command
-    constructor(command:Command){
+    command: Command;
+
+    execute(command:Command){
         this.command=command
     }
-    executeCommand(){
+   
+   public executeCommand(){
+       
         return this.command.setCommand()
     }
 

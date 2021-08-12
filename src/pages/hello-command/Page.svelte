@@ -1,18 +1,38 @@
 <script>
+  import { setLightCommands } from "./command-provider";
+
   let commands = {
     on: "on",
-    off:'off',
+    off: "off",
     red0: "red/0",
     red1: "red/1",
     red2: "red/2",
     red3: "red/3",
   };
+  let commandType = "red0";
+  let src = `./images/light-receiver/${commands[commandType]}.png`;
 
-  let src = `./images/light-receiver/${commands["red1"]}.png`;
-
-  function executeCommand(){}
+  function executeCommand(command) {
+    commandType = setLightCommands(command);
+    src = `./images/light-receiver/${commands[command]}.png`;
+     console.log(src)
+  }
 
 </script>
+
+<h1>Command buttons</h1>
+
+<div class="btn-group">
+  <button class="on" on:click={() => executeCommand('on')}>On</button>
+  <button class="off" on:click={() => executeCommand('off')}>Off</button>
+
+  <button class="increase-lum" on:click={() => executeCommand()}>+</button>
+  <button class="decrease-lum" on:click={() => executeCommand()}>-</button>
+
+  <button class="red-light" on:click={() => executeCommand()}>Red</button>
+</div>
+
+<div class="portrait"><img {src} alt={src} /></div>
 
 <style>
   .btn-group button {
@@ -58,17 +78,3 @@
   }
 
 </style>
-
-<h1>Command buttons</h1>
-
-<div class="btn-group">
-  <button class="on" on:click={()=>executeCommand()} >On</button>
-  <button class="off" on:click={()=>executeCommand()}>Off</button>
-
-  <button class="increase-lum" on:click={()=>executeCommand()}>+</button>
-  <button class="decrease-lum" on:click={()=>executeCommand()}>-</button>
-
-  <button class="red-light" on:click={()=>executeCommand()}>Red</button>
-</div>
-
-<div class="portrait"><img {src} alt={src} /></div>
