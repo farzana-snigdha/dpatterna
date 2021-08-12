@@ -1,10 +1,16 @@
 <script>
   let commands = {
     on: "on",
+    off:'off',
+    red0: "red/0",
     red1: "red/1",
+    red2: "red/2",
+    red3: "red/3",
   };
 
   let src = `./images/light-receiver/${commands["red1"]}.png`;
+
+  function executeCommand(){}
 
 </script>
 
@@ -56,13 +62,13 @@
 <h1>Command buttons</h1>
 
 <div class="btn-group">
-  <button class="on">On</button>
-  <button class="off">Off</button>
+  <button class="on" on:click={()=>executeCommand()} >On</button>
+  <button class="off" on:click={()=>executeCommand()}>Off</button>
 
-  <button class="increase-lum">+</button>
-  <button class="decrease-lum">-</button>
+  <button class="increase-lum" on:click={()=>executeCommand()}>+</button>
+  <button class="decrease-lum" on:click={()=>executeCommand()}>-</button>
 
-  <button class="red-light">Red</button>
+  <button class="red-light" on:click={()=>executeCommand()}>Red</button>
 </div>
 
 <div class="portrait"><img {src} alt={src} /></div>
